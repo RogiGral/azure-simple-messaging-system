@@ -63,6 +63,10 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
           value: nodeVersion
         }
         {
+          name: 'TOKEN_API_BASE_URL'
+          value: 'http://smsfunapprogi.azurewebsites.net/api/token?'
+        }
+        {
           name: 'STORAGE_ACCOUNT_CONNECTION'
           value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value};EndpointSuffix=core.windows.net'
         }

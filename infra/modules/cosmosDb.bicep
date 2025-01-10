@@ -47,6 +47,16 @@ resource cosmosDbContainer 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/c
         ]
         kind: 'Hash'
       }
+      uniqueKeyPolicy: {
+        uniqueKeys: [
+          {
+            paths: [
+              '/urlToken'
+            ]
+          }
+        ]
+      }
+      defaultTtl: 86400 // 24 hours
       indexingPolicy: {
         indexingMode: 'consistent'
         includedPaths: [
