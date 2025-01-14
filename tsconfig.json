@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    // Current settings to keep
+    "module": "commonjs",
+    "target": "es6",
+    "outDir": "dist",
+    "rootDir": ".",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+
+    "strict": true, // Enable all strict type checking options
+    "baseUrl": ".", // Base directory to resolve non-relative module names
+    "paths": {
+      // Path mapping for module aliases
+      "@/*": ["src/*"]
+    },
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "declaration": true, // Generate .d.ts files
+    "declarationMap": true, // Generate sourcemaps for .d.ts files
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Ensure consistent casing in file names
+    "resolveJsonModule": true, // Allow importing JSON files
+    "noImplicitAny": false, // Since strict is false in your original
+    "removeComments": false, // Keep comments in output
+    "lib": [
+      // Specify library files to be included
+      "es6",
+      "dom",
+      "es2017"
+    ]
+  },
+  "include": [
+    "src/**/*" // Only include files in src directory
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts" // Exclude test files from compilation
+  ]
+}
