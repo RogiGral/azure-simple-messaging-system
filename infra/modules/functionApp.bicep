@@ -64,7 +64,7 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
         }
         {
           name: 'TOKEN_API_BASE_URL'
-          value: 'http://smsfunapprogi.azurewebsites.net/api/token?'
+          value: 'https://smsfunapprogi.azurewebsites.net/api/token'
         }
         {
           name: 'STORAGE_ACCOUNT_CONNECTION'
