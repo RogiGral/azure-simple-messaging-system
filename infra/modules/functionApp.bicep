@@ -5,6 +5,9 @@ param appInsightsInstrumentationKey string
 param cosmosDbAccountName string
 param cosmosDbDatabaseName string
 param cosmosDbContainerName string
+param twilioClientId string
+@secure()
+param twilioClientSecret string
 param nodeVersion string = '~18'
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
@@ -69,6 +72,14 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
         {
           name: 'STORAGE_ACCOUNT_CONNECTION'
           value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};AccountKey=${storageAccount.listKeys().keys[0].value};EndpointSuffix=core.windows.net'
+        }
+        {
+          name: 'TWILIO_CLIENT_ID'
+          value: twilioClientId
+        }
+        {
+          name: 'TWILIO_CLIENT_SECRET'
+          value: twilioClientSecret
         }
       ]
     }

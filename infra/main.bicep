@@ -8,6 +8,10 @@ param cosmosDbAccountName string
 param cosmosDbDatabaseName string 
 param cosmosDbContainerName string 
 param cosmosDbPartitionKey string
+
+param twilioClientId string
+@secure()
+param twilioClientSecret string
 module storageAccount './modules/storageAccount.bicep' = {
   name: storageAccountName
   params: {
@@ -43,6 +47,8 @@ module functionApp './modules/functionApp.bicep' = {
     cosmosDbAccountName: cosmosDbAccountName
     cosmosDbDatabaseName: cosmosDbDatabaseName
     cosmosDbContainerName: cosmosDbContainerName
+    twilioClientId: twilioClientId
+    twilioClientSecret: twilioClientSecret
   }
 }
 
