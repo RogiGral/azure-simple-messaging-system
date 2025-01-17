@@ -5,7 +5,7 @@ import {
   InvocationContext,
 } from '@azure/functions'
 import { tokenService } from '../services/token.service'
-import { processMessage, replaceUrls } from '../helpers/message.helper'
+import { processMessage, replaceUrls } from '../helpers'
 import { cosmosDbService } from '../services/cosmosDb.service'
 
 export async function salesforceJourneyGateway(
