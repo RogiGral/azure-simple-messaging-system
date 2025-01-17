@@ -6,7 +6,11 @@ import {
   InvocationContext,
 } from '@azure/functions'
 import * as df from 'durable-functions'
-import { inputParserActivity, validateInputActivity } from './activities'
+import {
+  inputParserActivity,
+  sendToQueueActivity,
+  validateInputActivity,
+} from './activities'
 import { vendorCampaignOrchestrator } from './orchestrators'
 import { isValidCampaignType } from '../validators'
 
@@ -51,6 +55,7 @@ const messageCampaignOrchestrator: HttpHandler = async (
 
 df.app.activity('inputParserActivity', { handler: inputParserActivity })
 df.app.activity('validateInputActivity', { handler: validateInputActivity })
+df.app.activity('sendToQueueActivity', { handler: sendToQueueActivity })
 
 df.app.orchestration('viber', vendorCampaignOrchestrator)
 df.app.orchestration('text', vendorCampaignOrchestrator)
